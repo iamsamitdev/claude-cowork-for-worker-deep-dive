@@ -1,0 +1,11 @@
+ทีม Digital Transformation
+
+สมาชิก:
+1. นายสมชาย ดีมาก - ผู้จัดการโครงการ - somchai@company.com
+2. นางสาวพิมพ์ใจ สุขใส - นักวิเคราะห์ระบบ - pimjai@company.com  
+3. นายอนุชา พัฒนา - นักพัฒนา Front-end - anucha@company.com
+4. นางสาวกัญญา มีสุข - นักพัฒนา Back-end - kanya@company.com
+5. นายวีระ ชาญชัย - UX Designer - veera@company.com
+
+ประชุมทีมทุกวันจันทร์ เวลา 9:00 น.
+ห้องประชุม: ชั้น 5 ห้อง Innovation Hub

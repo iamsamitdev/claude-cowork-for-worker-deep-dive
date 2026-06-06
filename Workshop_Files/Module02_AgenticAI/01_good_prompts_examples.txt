@@ -1,0 +1,34 @@
+# ✅ ตัวอย่าง Prompt ที่ดี
+
+## 1. สรุปเอกสาร
+"อ่านไฟล์ project_brief.md แล้วสรุปเป็น:
+- จุดประสงค์โครงการ (1-2 ประโยค)
+- Key Deliverables (bullet list)
+- Timeline หลัก (ตาราง)
+บันทึกผลใน project_summary.md"
+
+## 2. วิเคราะห์ข้อมูล
+"อ่านไฟล์ sales_data.csv แล้ว:
+1. หา Top 3 สินค้าขายดีสุด
+2. คำนวณยอดขายรวมแต่ละเดือน
+3. หา Month-over-Month Growth %
+สร้างไฟล์ Excel ชื่อ sales_analysis.xlsx พร้อม Chart"
+
+## 3. จัดการอีเมล
+"อ่านไฟล์ email_inbox.txt ที่มี emails 10 ฉบับ แล้ว:
+1. จัดกลุ่มตามหัวข้อ (ด่วน / ทั่วไป / FYI)
+2. สรุปแต่ละฉบับใน 1 ประโยค
+3. ระบุ action items ที่ต้องทำ
+ตอบในรูปแบบ Markdown table"
+
+## 4. สร้าง Report
+"ใช้ข้อมูลจาก meeting_notes_*.txt ทั้งหมด (4 ไฟล์)
+สร้าง Word Document ชื่อ Q1_Meeting_Summary.docx
+โครงสร้าง: Executive Summary → Key Decisions → Action Items → Next Steps
+ความยาว: ไม่เกิน 3 หน้า"
+
+## 5. Batch Processing
+"ทำสิ่งต่อไปนี้กับไฟล์ CSV ทุกไฟล์ในโฟลเดอร์ data/:
+- นับจำนวน rows
+- หา missing values
+- สรุปผลลงใน data_quality_report.md"

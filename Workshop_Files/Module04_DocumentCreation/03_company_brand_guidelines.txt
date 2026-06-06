@@ -1,0 +1,27 @@
+Brand Guidelines — ABC Technology
+
+สี:
+Primary: Navy Blue #003087
+Secondary: Sky Blue #0073CF
+Accent: Orange #FF6900
+Text: Dark Gray #333333
+Background: White #FFFFFF / Light Gray #F5F5F5
+
+ฟอนต์:
+Heading (ไทย): TH Sarabun New Bold
+Body (ไทย): TH Sarabun New Regular
+Heading (อังกฤษ): Calibri Bold
+Body (อังกฤษ): Calibri Regular
+
+Logo: ใช้เฉพาะ Official Logo เท่านั้น
+ขนาดขั้นต่ำ: 1.5 ซม. ความกว้าง
+
+Tone of Voice:
+- Professional แต่ Approachable
+- ชัดเจน ตรงประเด็น
+- ข้อมูลอ้างอิงเสมอ
+
+Template ที่อนุมัติ:
+- Word: ABC_Report_Template.docx
+- PPT: ABC_Presentation_Template.pptx
+- Excel: ABC_Data_Template.xlsx

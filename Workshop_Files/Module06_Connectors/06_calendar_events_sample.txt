@@ -1,0 +1,45 @@
+ข้อมูลตัวอย่าง: Google Calendar Events สำหรับฝึก Prompt
+
+=== วันจันทร์ ===
+09:00-09:30  Standup Team Meeting (Google Meet)
+             ผู้เข้าร่วม: ทีม Product 6 คน
+             Link: meet.google.com/abc-def-ghi
+
+10:00-11:00  1:1 กับ CEO
+             หัวข้อ: Q3 Strategy Review
+             Location: ห้องประชุมชั้น 10
+
+14:00-15:30  Budget Planning Workshop
+             ผู้เข้าร่วม: CFO, Finance Team, Department Heads
+             ไฟล์แนบ: Q3_Budget_Draft_v2.xlsx
+
+16:00-16:30  Training Session: New CRM System
+             Online | ลิงก์ Zoom
+
+=== วันอังคาร ===
+09:30-10:00  Standup
+10:00-12:00  Product Demo กับลูกค้า ABC Corp
+             สำคัญ: ลูกค้า Tier 1 — เตรียม Demo Environment ก่อน
+13:00-14:00  Legal Review: Contract ABC Corp
+             ต้องการ Feedback ก่อน EOD
+
+=== วันพุธ ===
+09:30-10:00  Standup
+11:00-12:00  Quarterly Business Review (QBR)
+             ผู้นำเสนอ: ทุก Department Head
+             ต้องเตรียม: Slide + Data Summary
+15:00-16:00  Hiring Interview: Senior Developer Position
+             ผู้สัมภาษณ์: Tech Lead + HR
+
+=== วันพฤหัส ===
+09:30-10:00  Standup
+10:00-11:00  Investor Call (สำคัญมาก)
+             Dial-in: +66-2-xxx-xxxx
+13:00-15:00  Workshop: Claude Cowork Training
+             Internal Training — ทีม Operations
+
+=== วันศุกร์ ===
+09:30-10:00  Standup
+14:00-15:00  Weekly Retrospective
+             ทีม Engineering
+17:00        🔔 Deadline: ส่ง Weekly Report ให้ผู้บริหาร

@@ -1,0 +1,43 @@
+=== ตัวอย่างอีเมล 1: ลูกค้าถามราคา ===
+From: somchai@bigcorp.co.th
+To: sales@abc-tech.com
+Subject: สอบถามราคา Notebook สำหรับองค์กร
+
+เรียนทีมขาย
+
+ทางบริษัท Big Corp ต้องการจัดซื้อ Notebook จำนวน 50 เครื่อง
+สำหรับพนักงานฝ่าย IT ภายในเดือนพฤษภาคมนี้
+
+รบกวนส่งใบเสนอราคาพร้อมรายละเอียดสินค้า Spec ที่เหมาะสม
+สำหรับงาน Development และ Data Analysis
+
+ขอแสดงความนับถือ
+สมชาย วิลัย, IT Manager
+
+---
+
+=== ตัวอย่างอีเมล 2: ร้องเรียน ===
+From: customer99@gmail.com
+To: support@abc-tech.com
+Subject: สินค้าเสียหายจากการจัดส่ง
+
+สวัสดีครับ
+
+ผมได้รับ Tablet รุ่น TB001 เมื่อวานนี้ แต่เปิดกล่องออกมา
+พบว่าหน้าจอมีรอยร้าว น่าจะเกิดจากการจัดส่ง
+Order #2569-0342
+
+รบกวนติดต่อกลับด่วนที่ 081-xxx-xxxx
+
+---
+
+=== ตัวอย่างอีเมล 3: FYI ทั่วไป ===
+From: newsletter@techdigest.com
+To: team@abc-tech.com
+Subject: Tech Digest: AI in Enterprise อัปเดตล่าสุด
+
+สัปดาห์นี้ใน Tech World:
+- Microsoft ประกาศ Copilot for Business ราคาใหม่
+- Google Workspace AI เพิ่ม Feature สำหรับ Docs
+- Gartner: 65% ของ Enterprise จะใช้ Agentic AI ภายในปี 2570
+- คู่มือ: วิธีประเมิน ROI ของ AI Tools ใน SME
