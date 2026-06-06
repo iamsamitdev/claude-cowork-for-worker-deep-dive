@@ -49,10 +49,10 @@
 
 | คืน | วันที่ | หัวข้อหลัก | Modules |
 |-----|--------|-----------|---------|
-| **คืนที่ 1** | ศุกร์ 6 มิ.ย. 2569 | AI Agent Foundation | M1–M3 |
-| **คืนที่ 2** | เสาร์ 7 มิ.ย. 2569 | Document Creation | M4 |
-| **คืนที่ 3** | ศุกร์ 13 มิ.ย. 2569 | Document Intelligence + Connectors | M5–M6 |
-| **คืนที่ 4** | เสาร์ 14 มิ.ย. 2569 | Automation + Security + Wrap-up | M7–M8 + Final Project |
+| **คืนที่ 1** | เสาร์ 6 มิ.ย. 2569 | AI Agent Foundation | M1–M3 |
+| **คืนที่ 2** | อาทิตย์ 7 มิ.ย. 2569 | Document Creation | M4 |
+| **คืนที่ 3** | เสาร์ 13 มิ.ย. 2569 | Document Intelligence + Connectors | M5–M6 |
+| **คืนที่ 4** | อาทิตย์ 14 มิ.ย. 2569 | Automation + Security + Wrap-up | M7–M8 + Final Project |
 
 ---
 
