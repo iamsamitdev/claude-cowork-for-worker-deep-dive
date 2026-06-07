@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Genius — Q1 Results & Q2 Strategy (Modern)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  deck-stage:not(:defined){visibility:hidden}
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  :root{
+    --bg:#0a0f1c;
+    --bg-2:#0e1526;
+    --panel:#131c30;
+    --panel-2:#172238;
+    --panel-hi:#1a2740;
+    --line:rgba(255,255,255,.09);
+    --line-2:rgba(255,255,255,.14);
+    --ink:#eef2fb;
+    --muted:#93a1bd;
+    --dim:#5e6c87;
+    --blue:#3b9bff;
+    --blue-deep:#0073CF;
+    --navy:#003087;
+    --orange:#ff7a1a;
+    --green:#34d98a;
+    --disp:'Space Grotesk','IBM Plex Sans Thai',sans-serif;
+    --sans:'IBM Plex Sans','IBM Plex Sans Thai',sans-serif;
+  }
+
+  html,body{background:#05070d;}
+
+  section{
+    background:
+      radial-gradient(1200px 700px at 82% -8%, rgba(59,155,255,.13), transparent 60%),
+      radial-gradient(900px 600px at -6% 108%, rgba(255,122,26,.10), transparent 55%),
+      linear-gradient(160deg,#0b1120,#080d18);
+    color:var(--ink);
+    font-family:var(--sans);
+    overflow:hidden;
+  }
+
+  .pad{ position:absolute; inset:0; padding:96px 120px 90px; display:flex; flex-direction:column; }
+
+  .kicker{
+    font-family:var(--disp); font-weight:500; font-size:20px; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:14px;
+  }
+  .kicker::before{ content:""; width:38px; height:2px; background:var(--orange); display:inline-block; }
+  .headline{ font-family:var(--disp); font-weight:600; color:#fff; line-height:1.03; letter-spacing:-.02em; }
+  .h-xl{ font-size:84px; }
+  .h-lg{ font-size:62px; }
+  .lede{ font-size:26px; line-height:1.55; color:var(--muted); font-weight:300; max-width:1150px; }
+
+  .foot{
+    position:absolute; left:120px; right:120px; bottom:40px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:17px; color:var(--dim); border-top:1px solid var(--line); padding-top:16px;
+  }
+  .foot .brand{ display:flex; white-space:nowrap; align-items:center; gap:11px; font-weight:500; color:var(--muted); letter-spacing:.02em; }
+  .foot .brand img{ height:26px; width:auto; display:block; filter:drop-shadow(0 0 1px rgba(255,255,255,.4)); }
+  .foot .meta{ display:flex; align-items:center; gap:24px; letter-spacing:.05em; }
+  .foot .pageno{ font-family:var(--disp); font-variant-numeric:tabular-nums; font-weight:600; color:var(--blue); }
+  .conf{ text-transform:uppercase; letter-spacing:.2em; font-size:14px; }
+
+  .chip{ display:inline-flex; white-space:nowrap; align-items:center; gap:9px; font-family:var(--disp); font-size:15px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); background:rgba(59,155,255,.1); border:1px solid rgba(59,155,255,.28); border-radius:30px; padding:7px 16px; }
+  .up{ color:var(--green); font-weight:600; }
+  .up::before{ content:"▲"; font-size:12px; margin-right:6px; }
+  .down{ color:var(--orange); font-weight:600; }
+  .down::before{ content:"▼"; font-size:12px; margin-right:6px; }
+
+  /* ---------- 1 · TITLE ---------- */
+  .title-slide .pad{ justify-content:center; }
+  .t-grid{ position:absolute; inset:0; opacity:.5; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:90px 90px; mask-image:radial-gradient(900px 700px at 75% 30%,#000,transparent 75%); }
+  .t-orb{ position:absolute; right:-160px; top:-160px; width:760px; height:760px; border-radius:50%; background:radial-gradient(circle at 40% 40%,rgba(59,155,255,.34),rgba(0,48,135,0) 62%); filter:blur(8px); }
+  .t-orb.b{ right:18%; bottom:-360px; top:auto; width:560px; height:560px; background:radial-gradient(circle at 50% 50%,rgba(255,122,26,.26),transparent 62%); }
+  .t-top{ position:absolute; top:96px; left:120px; right:120px; display:flex; align-items:center; justify-content:space-between; z-index:3; }
+  .t-logo{ display:flex; align-items:center; gap:16px; }
+  .t-logo .lc{ background:rgba(255,255,255,.95); border-radius:13px; padding:11px 13px; display:flex; box-shadow:0 10px 40px rgba(0,0,0,.4); }
+  .t-logo .lc img{ height:40px; display:block; }
+  .t-logo .co{ font-family:var(--disp); font-size:26px; font-weight:600; }
+  .t-logo .co small{ display:block; font-family:var(--sans); font-size:13px; letter-spacing:.34em; text-transform:uppercase; color:var(--blue); font-weight:500; margin-top:2px; }
+  .t-main{ position:relative; z-index:3; }
+  .t-main h1{ font-family:var(--disp); font-weight:600; font-size:120px; line-height:.98; letter-spacing:-.03em; }
+  .t-main h1 .o{ color:var(--orange); }
+  .t-main h1 .grad{ background:linear-gradient(100deg,#7cc0ff,#3b9bff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .t-main .sub{ font-size:28px; color:var(--muted); margin-top:34px; font-weight:300; line-height:1.55; max-width:1000px; }
+  .t-foot{ position:absolute; left:120px; right:120px; bottom:84px; z-index:3; display:flex; align-items:flex-end; justify-content:space-between; }
+  .t-foot .who{ font-size:19px; color:var(--muted); line-height:1.7; font-weight:300; }
+  .t-foot .who b{ color:#fff; font-weight:500; }
+  .t-foot .stamp{ font-family:var(--disp); text-align:right; font-size:14px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); }
+
+  /* ---------- KPI ---------- */
+  .kpi-row{ display:grid; gap:22px; }
+  .kpi{ position:relative; background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.015)); border:1px solid var(--line); border-radius:16px; padding:28px 30px; display:flex; flex-direction:column; gap:9px; overflow:hidden; }
+  .kpi::after{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--blue); }
+  .kpi.accent::after{ background:var(--orange); }
+  .kpi .lab{ font-size:18px; color:var(--muted); font-weight:400; letter-spacing:.01em; }
+  .kpi .val{ font-family:var(--disp); font-size:62px; font-weight:600; color:#fff; line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
+  .kpi .val small{ font-size:30px; font-weight:500; color:var(--muted); }
+  .kpi .delta{ font-size:18px; }
+
+  .cols{ flex:1; display:grid; grid-template-columns:1.05fr 1fr; gap:60px; align-items:center; }
+  .cols.narrow{ grid-template-columns:1fr 1.12fr; }
+
+  /* bullets */
+  .blist{ display:flex; flex-direction:column; gap:22px; }
+  .bitem{ display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:start; }
+  .bnum{ font-family:var(--disp); font-weight:600; font-size:26px; color:var(--orange); line-height:1.1; min-width:40px; }
+  .btext b{ display:block; font-size:25px; color:#fff; font-weight:600; margin-bottom:5px; }
+  .btext span{ font-size:20px; color:var(--muted); line-height:1.5; font-weight:300; }
+
+  /* chart card */
+  .chart-card{ background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.012)); border:1px solid var(--line); border-radius:18px; padding:32px 36px 24px; }
+  .chart-card .ct{ font-size:19px; color:var(--muted); font-weight:400; }
+  .chart-card .cv{ font-family:var(--disp); font-size:36px; color:#fff; font-weight:600; margin-top:3px; }
+  svg .grid{ stroke:rgba(255,255,255,.1); stroke-width:1; }
+  svg .axis{ fill:var(--dim); font-family:var(--sans); font-size:18px; font-weight:400; }
+  svg .vlab{ fill:#fff; font-family:'Space Grotesk'; font-size:19px; font-weight:600; }
+
+  /* progress vs target */
+  .pgrid{ display:flex; flex-direction:column; gap:30px; }
+  .pbar .ptop{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:11px; }
+  .pbar .pname{ font-size:22px; font-weight:500; color:var(--ink); }
+  .pbar .pval{ font-family:var(--disp); font-size:25px; font-weight:600; color:#fff; font-variant-numeric:tabular-nums; }
+  .pbar .ptrack{ position:relative; height:16px; background:rgba(255,255,255,.07); border-radius:10px; overflow:hidden; }
+  .pbar .pfill{ position:absolute; left:0; top:0; bottom:0; background:linear-gradient(90deg,var(--blue-deep),var(--blue)); border-radius:10px; box-shadow:0 0 18px rgba(59,155,255,.5); }
+  .pbar .ptarget{ position:absolute; top:-6px; bottom:-6px; width:3px; background:var(--orange); box-shadow:0 0 10px rgba(255,122,26,.8); }
+  .pbar .pmeta{ display:flex; justify-content:space-between; margin-top:9px; font-size:16px; color:var(--dim); }
+
+  /* product mix */
+  .mix{ display:flex; flex-direction:column; gap:18px; }
+  .mrow{ display:grid; grid-template-columns:320px 1fr auto; gap:28px; align-items:center; }
+  .mrow .mname{ font-size:23px; font-weight:500; color:var(--ink); }
+  .mrow .mname small{ display:block; font-size:15px; color:var(--dim); font-weight:300; letter-spacing:.02em; margin-top:3px; }
+  .mrow .mtrack{ height:24px; background:rgba(255,255,255,.06); border-radius:7px; overflow:hidden; }
+  .mrow .mfill{ height:100%; border-radius:7px; }
+  .mrow .mval{ font-family:var(--disp); font-size:27px; font-weight:600; color:#fff; min-width:150px; text-align:right; font-variant-numeric:tabular-nums; }
+  .mrow .mval small{ font-size:17px; color:var(--muted); font-weight:400; margin-left:8px; }
+
+  /* timeline */
+  .tl{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:stretch; }
+  .tcol .thead{ display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+  .tcol .tmon{ font-family:var(--disp); font-size:36px; font-weight:600; color:#fff; }
+  .tcol .tnum{ width:50px; height:50px; border-radius:14px; background:rgba(59,155,255,.14); border:1px solid rgba(59,155,255,.34); color:var(--blue); display:flex; align-items:center; justify-content:center; font-weight:600; font-size:22px; font-family:var(--disp); }
+  .tcol .tcard{ background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.012)); border:1px solid var(--line); border-radius:16px; padding:26px 28px; display:flex; flex-direction:column; gap:17px; height:calc(100% - 70px); }
+  .tcol .tcard .ti{ display:flex; gap:13px; align-items:start; font-size:20px; color:var(--ink); line-height:1.4; font-weight:300; }
+  .tcol .tcard .ti::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--orange); margin-top:9px; flex:none; box-shadow:0 0 8px rgba(255,122,26,.7); }
+  .tcol:nth-child(2) .tnum{ background:rgba(255,255,255,.06); border-color:var(--line-2); color:var(--ink); }
+  .tcol:nth-child(3) .tnum{ background:rgba(255,122,26,.14); border-color:rgba(255,122,26,.4); color:var(--orange); }
+
+  /* challenges */
+  .ch-grid{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:stretch; }
+  .ch{ background:linear-gradient(165deg,rgba(255,255,255,.045),rgba(255,255,255,.01)); border:1px solid var(--line); border-radius:18px; padding:36px 32px; display:flex; flex-direction:column; }
+  .ch .cnum{ font-family:var(--disp); font-size:28px; font-weight:600; color:var(--dim); }
+  .ch h3{ font-family:var(--disp); font-size:28px; color:#fff; font-weight:600; margin:14px 0 14px; line-height:1.2; }
+  .ch p{ font-size:20px; color:var(--muted); line-height:1.5; font-weight:300; }
+  .ch .learn{ margin-top:auto; padding-top:22px; border-top:1px solid var(--line); font-size:19px; color:var(--ink); display:flex; gap:11px; font-weight:300; }
+  .ch .learn b{ color:var(--orange); font-weight:600; white-space:nowrap; }
+
+  /* strategy pillars */
+  .pill-grid{ flex:1; display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr); gap:22px; }
+  .pill{ position:relative; background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.012)); border:1px solid var(--line); border-radius:18px; padding:32px 34px; display:flex; gap:24px; align-items:flex-start; overflow:hidden; }
+  .pill .pidx{ font-family:var(--disp); font-size:50px; font-weight:700; color:transparent; -webkit-text-stroke:1.5px var(--blue); line-height:.82; min-width:60px; }
+  .pill h3{ font-family:var(--disp); font-size:27px; color:#fff; font-weight:600; margin-bottom:9px; }
+  .pill p{ font-size:19px; color:var(--muted); line-height:1.45; font-weight:300; }
+  .pill .tag{ display:inline-block; margin-top:13px; font-family:var(--disp); font-size:14px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--orange); background:rgba(255,122,26,.1); border:1px solid rgba(255,122,26,.3); border-radius:20px; padding:4px 13px; }
+
+  /* exec summary strip */
+  .stat-strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .stat-strip .s{ background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.012)); border:1px solid var(--line); border-radius:16px; padding:30px 30px; }
+  .stat-strip .sv{ font-family:var(--disp); font-size:54px; font-weight:600; color:#fff; line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .stat-strip .sv small{ font-size:26px; color:var(--muted); }
+  .stat-strip .sl{ font-size:17px; color:var(--muted); margin-top:11px; line-height:1.4; font-weight:300; }
+  .stat-strip .s:first-child{ background:linear-gradient(165deg,rgba(59,155,255,.16),rgba(59,155,255,.03)); border-color:rgba(59,155,255,.3); }
+
+  /* next steps */
+  .ns-grid{ flex:1; display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .ns-list{ display:flex; flex-direction:column; gap:18px; }
+  .ns{ display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.012)); border:1px solid var(--line); border-radius:14px; padding:22px 26px; }
+  .ns .nk{ width:44px; height:44px; border-radius:12px; background:rgba(59,155,255,.14); border:1px solid rgba(59,155,255,.34); color:var(--blue); font-weight:600; display:flex; align-items:center; justify-content:center; font-size:21px; font-family:var(--disp); }
+  .ns .nt{ font-size:22px; color:var(--ink); font-weight:400; }
+  .qa-card{ position:relative; background:linear-gradient(160deg,rgba(59,155,255,.16),rgba(255,122,26,.06)); border:1px solid var(--line-2); border-radius:22px; padding:58px 54px; overflow:hidden; }
+  .qa-card .qbig{ font-family:var(--disp); font-size:74px; font-weight:600; line-height:1.04; }
+  .qa-card .qbig em{ font-style:normal; color:var(--orange); }
+  .qa-card .qsub{ font-size:21px; color:var(--muted); margin-top:20px; line-height:1.6; font-weight:300; }
+  .qa-card .qcontact{ margin-top:30px; padding-top:24px; border-top:1px solid var(--line-2); font-size:18px; color:var(--muted); line-height:1.7; font-weight:300; }
+  .qa-card .qcontact b{ color:#fff; font-weight:500; }
+
+  .legend{ display:flex; gap:24px; margin-top:18px; flex-wrap:wrap; }
+  .legend span{ display:flex; align-items:center; gap:9px; font-size:17px; color:var(--muted); font-weight:300; }
+  .legend i{ width:14px; height:14px; border-radius:3px; display:inline-block; }
+
+  @media (prefers-reduced-motion:no-preference){
+    [data-deck-active] .anim{ animation:rise .6s cubic-bezier(.2,.7,.2,1) both; }
+    [data-deck-active] .anim:nth-child(2){ animation-delay:.07s; }
+    [data-deck-active] .anim:nth-child(3){ animation-delay:.14s; }
+    [data-deck-active] .anim:nth-child(4){ animation-delay:.21s; }
+    @keyframes rise{ from{ opacity:0; transform:translateY(22px); } to{ opacity:1; transform:none; } }
+  }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- 1 · TITLE -->
+  <section class="title-slide" data-label="Title">
+    <div class="t-grid"></div>
+    <div class="t-orb"></div>
+    <div class="t-orb b"></div>
+    <div class="t-top">
+      <div class="t-logo">
+        <div class="lc"><img src="assets/logo.png" alt="IT Genius"></div>
+        <div class="co">IT Genius<small>Technology Solutions</small></div>
+      </div>
+      <div class="chip">Board Review · มิถุนายน 2569</div>
+    </div>
+    <div class="pad">
+      <div class="t-main">
+        <div class="kicker" style="margin-bottom:30px;">Quarterly Business Review</div>
+        <h1><span class="grad">Q1 Results</span><br>& <span class="o">Q2 Strategy</span></h1>
+        <div class="sub">ผลการดำเนินงานไตรมาส 1 และทิศทางกลยุทธ์ไตรมาส 2 — สรุปภาพรวมเชิงลึกสำหรับคณะผู้บริหาร</div>
+      </div>
+    </div>
+    <div class="t-foot">
+      <div class="who">นำเสนอต่อ <b>คณะผู้บริหาร (CEO · CFO · CMO · VP)</b><br>โดย ฝ่ายกลยุทธ์องค์กร · IT Genius</div>
+      <div class="stamp">Confidential — Internal Use Only</div>
+    </div>
+  </section>
+
+  <!-- 2 · EXECUTIVE SUMMARY -->
+  <section data-label="Executive Summary">
+    <div class="pad">
+      <div class="kicker anim">Executive Summary</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">ไตรมาสที่เติบโตเหนือเป้าหมาย</h2>
+      <p class="lede anim" style="margin-top:16px;">Q1 ปิดด้วยรายได้สูงสุดเป็นประวัติการณ์ ขับเคลื่อนโดยกลุ่ม Cloud &amp; Managed Services พร้อมฐานรายได้ประจำที่แข็งแรงขึ้น ทำให้เรามีโมเมนตัมเต็มที่เข้าสู่ Q2</p>
+
+      <div class="stat-strip anim" style="margin-top:44px;">
+        <div class="s"><div class="sv">฿48.5<small>M</small></div><div class="sl">รายได้รวม Q1 · <span class="up" style="font-size:17px">+22% YoY</span></div></div>
+        <div class="s"><div class="sv">+15<small>%</small></div><div class="sl">สูงกว่าเป้าหมายที่ตั้งไว้ ฿42M</div></div>
+        <div class="s"><div class="sv">38<small>%</small></div><div class="sl">กำไรขั้นต้น · ดีขึ้น 3 จุดจากปีก่อน</div></div>
+        <div class="s"><div class="sv">14</div><div class="sl">ลูกค้าใหม่ · NPS แตะระดับ 62</div></div>
+      </div>
+
+      <div class="anim" style="margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:22px 60px;">
+        <div class="bitem"><div class="bnum">01</div><div class="btext"><b>Cloud &amp; Managed Services เป็นเครื่องยนต์หลัก</b><span>เติบโต +34% YoY คิดเป็น 43% ของรายได้รวม</span></div></div>
+        <div class="bitem"><div class="bnum">02</div><div class="btext"><b>รายได้ประจำ (Recurring) แตะ 54%</b><span>เพิ่มความมั่นคงและคาดการณ์รายได้ได้ดีขึ้น</span></div></div>
+        <div class="bitem"><div class="bnum">03</div><div class="btext"><b>ทีมเติบโตเป็น 94 คน ส่งมอบงานตรงเวลา 92%</b><span>รองรับการขยายตัวของพอร์ตโครงการ</span></div></div>
+        <div class="bitem"><div class="bnum">04</div><div class="btext"><b>พร้อมเร่งเครื่อง Q2</b><span>เปิดตัว SaaS “GeniusCloud” และเจาะตลาด Enterprise</span></div></div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">02 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 3 · Q1 FINANCIALS -->
+  <section data-label="Q1 Financials">
+    <div class="pad">
+      <div class="kicker anim">Q1 Performance — Financials</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">ภาพรวมการเงินไตรมาส 1</h2>
+      <div class="cols" style="margin-top:38px;">
+        <div class="kpi-row anim" style="grid-template-columns:1fr 1fr;">
+          <div class="kpi"><div class="lab">รายได้รวม</div><div class="val">฿48.5<small>M</small></div><div class="delta up">+22% YoY</div></div>
+          <div class="kpi accent"><div class="lab">กำไรขั้นต้น (Gross Margin)</div><div class="val">38<small>%</small></div><div class="delta up">+3 จุด</div></div>
+          <div class="kpi"><div class="lab">EBITDA</div><div class="val">฿9.2<small>M</small></div><div class="delta up">19% margin</div></div>
+          <div class="kpi"><div class="lab">รายได้ประจำ (Recurring)</div><div class="val">54<small>%</small></div><div class="delta up">+6 จุด</div></div>
+        </div>
+        <div class="chart-card anim">
+          <div class="ct">รายได้รายเดือน (Monthly Revenue)</div>
+          <div class="cv">ไต่ระดับต่อเนื่อง Jan → Mar</div>
+          <svg viewBox="0 0 640 360" style="width:100%;height:auto;margin-top:14px;">
+            <line class="grid" x1="70" y1="40" x2="70" y2="290"></line>
+            <line class="grid" x1="70" y1="290" x2="610" y2="290"></line>
+            <line class="grid" x1="70" y1="123" x2="610" y2="123" stroke-dasharray="4 6"></line>
+            <line class="grid" x1="70" y1="206" x2="610" y2="206" stroke-dasharray="4 6"></line>
+            <text class="axis" x="55" y="295" text-anchor="end">12</text>
+            <text class="axis" x="55" y="211" text-anchor="end">15</text>
+            <text class="axis" x="55" y="128" text-anchor="end">18</text>
+            <defs>
+              <linearGradient id="af2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b9bff" stop-opacity=".34"></stop><stop offset="1" stop-color="#3b9bff" stop-opacity="0"></stop></linearGradient>
+              <linearGradient id="ln2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b9bff"></stop><stop offset="1" stop-color="#7cc0ff"></stop></linearGradient>
+            </defs>
+            <path d="M140,205 L340,150 L540,95 L540,290 L140,290 Z" fill="url(#af2)"></path>
+            <path d="M140,205 L340,150 L540,95" fill="none" stroke="url(#ln2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g>
+              <circle cx="140" cy="205" r="7" fill="#0a0f1c" stroke="#3b9bff" stroke-width="4"></circle>
+              <circle cx="340" cy="150" r="7" fill="#0a0f1c" stroke="#3b9bff" stroke-width="4"></circle>
+              <circle cx="540" cy="95" r="8" fill="#ff7a1a" stroke="#0a0f1c" stroke-width="3"></circle>
+            </g>
+            <text class="vlab" x="140" y="186" text-anchor="middle">฿14.2M</text>
+            <text class="vlab" x="340" y="131" text-anchor="middle">฿16.1M</text>
+            <text class="vlab" x="540" y="76" text-anchor="middle">฿18.2M</text>
+            <text class="axis" x="140" y="318" text-anchor="middle">ม.ค.</text>
+            <text class="axis" x="340" y="318" text-anchor="middle">ก.พ.</text>
+            <text class="axis" x="540" y="318" text-anchor="middle">มี.ค.</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">03 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 4 · Q1 vs TARGET -->
+  <section data-label="Q1 vs Target">
+    <div class="pad">
+      <div class="kicker anim">Q1 Performance — Against Target</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">เทียบเป้าหมายไตรมาส 1</h2>
+      <div class="cols narrow" style="margin-top:42px; align-items:start;">
+        <div class="anim" style="padding-top:6px;">
+          <p class="lede" style="font-size:24px;">ทุกตัวชี้วัดหลักทำได้สูงกว่าเป้าหมาย เส้นสีส้มคือระดับเป้าที่ตั้งไว้ — แท่งสีฟ้าคือผลจริง</p>
+          <div class="legend">
+            <span><i style="background:linear-gradient(90deg,#0073CF,#3b9bff)"></i> ผลจริง (Actual)</span>
+            <span><i style="background:#ff7a1a;width:5px;height:18px;border-radius:2px"></i> เป้าหมาย (Target)</span>
+          </div>
+          <div class="kpi accent" style="margin-top:36px;">
+            <div class="lab">สรุปภาพรวมเทียบเป้า</div>
+            <div class="val" style="font-size:46px;">เกินเป้า <span class="up" style="-webkit-text-stroke:0">3 / 3</span></div>
+            <div class="delta" style="color:var(--muted)">ตัวชี้วัดหลักทั้งหมดผ่านเกณฑ์</div>
+          </div>
+        </div>
+        <div class="pgrid anim">
+          <div class="pbar">
+            <div class="ptop"><div class="pname">รายได้รวม (Revenue)</div><div class="pval">฿48.5M</div></div>
+            <div class="ptrack"><div class="pfill" style="width:92%"></div><div class="ptarget" style="left:80%"></div></div>
+            <div class="pmeta"><span>เป้า ฿42.0M</span><span class="up" style="font-size:16px">+15.5% เหนือเป้า</span></div>
+          </div>
+          <div class="pbar">
+            <div class="ptop"><div class="pname">ลูกค้าใหม่ (New Clients)</div><div class="pval">14 ราย</div></div>
+            <div class="ptrack"><div class="pfill" style="width:88%"></div><div class="ptarget" style="left:69%"></div></div>
+            <div class="pmeta"><span>เป้า 11 ราย</span><span class="up" style="font-size:16px">+27% เหนือเป้า</span></div>
+          </div>
+          <div class="pbar">
+            <div class="ptop"><div class="pname">รายได้ประจำต่อเดือน (MRR)</div><div class="pval">฿8.7M</div></div>
+            <div class="ptrack"><div class="pfill" style="width:84%"></div><div class="ptarget" style="left:75%"></div></div>
+            <div class="pmeta"><span>เป้า ฿7.8M</span><span class="up" style="font-size:16px">+12% เหนือเป้า</span></div>
+          </div>
+          <div class="pbar">
+            <div class="ptop"><div class="pname">อัตราใช้กำลังทีม (Utilization)</div><div class="pval">78%</div></div>
+            <div class="ptrack"><div class="pfill" style="width:78%"></div><div class="ptarget" style="left:75%"></div></div>
+            <div class="pmeta"><span>เป้า 75%</span><span class="up" style="font-size:16px">+3 จุด เหนือเป้า</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">04 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 5 · PRODUCT PERFORMANCE -->
+  <section data-label="Product Performance">
+    <div class="pad">
+      <div class="kicker anim">Product Performance</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">รายได้แยกตามกลุ่มบริการ</h2>
+      <p class="lede anim" style="margin-top:14px;">Cloud &amp; Managed Services ขึ้นเป็นกลุ่มที่ใหญ่ที่สุดและโตเร็วที่สุด สะท้อนการปรับพอร์ตสู่รายได้ประจำตามกลยุทธ์</p>
+      <div class="mix anim" style="margin-top:42px;">
+        <div class="mrow">
+          <div class="mname">Cloud &amp; Managed Services<small>โต +34% YoY · ตัวขับเคลื่อนหลัก</small></div>
+          <div class="mtrack"><div class="mfill" style="width:100%;background:linear-gradient(90deg,#0073CF,#3b9bff);box-shadow:0 0 18px rgba(59,155,255,.45)"></div></div>
+          <div class="mval">฿21.0M<small>43%</small></div>
+        </div>
+        <div class="mrow">
+          <div class="mname">Software Development<small>โต +18% YoY</small></div>
+          <div class="mtrack"><div class="mfill" style="width:74%;background:#3b9bff"></div></div>
+          <div class="mval">฿15.5M<small>32%</small></div>
+        </div>
+        <div class="mrow">
+          <div class="mname">IT Consulting<small>โต +9% YoY</small></div>
+          <div class="mtrack"><div class="mfill" style="width:36%;background:#5e84b8"></div></div>
+          <div class="mval">฿7.5M<small>15%</small></div>
+        </div>
+        <div class="mrow">
+          <div class="mname">Hardware &amp; Licensing<small>ลดลง -6% YoY · ตามแผนปรับพอร์ต</small></div>
+          <div class="mtrack"><div class="mfill" style="width:21%;background:#ff7a1a"></div></div>
+          <div class="mval">฿4.5M<small>10%</small></div>
+        </div>
+      </div>
+      <div class="kpi-row anim" style="grid-template-columns:repeat(3,1fr);margin-top:42px;">
+        <div class="kpi"><div class="lab">มูลค่าสัญญาเฉลี่ยต่อราย (ACV)</div><div class="val" style="font-size:46px;">฿1.4<small>M</small></div><div class="delta up">+11%</div></div>
+        <div class="kpi"><div class="lab">อัตราต่อสัญญา (Retention)</div><div class="val" style="font-size:46px;">94<small>%</small></div><div class="delta up">+2 จุด</div></div>
+        <div class="kpi accent"><div class="lab">รายได้จากลูกค้าเดิม (Upsell)</div><div class="val" style="font-size:46px;">฿6.1<small>M</small></div><div class="delta up">+29%</div></div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">05 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 6 · TEAM PERFORMANCE -->
+  <section data-label="Team Performance">
+    <div class="pad">
+      <div class="kicker anim">Team Performance</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">ผลการดำเนินงานด้านทีม</h2>
+      <div class="cols" style="margin-top:40px;">
+        <div class="kpi-row anim" style="grid-template-columns:1fr 1fr;">
+          <div class="kpi"><div class="lab">จำนวนพนักงาน (Headcount)</div><div class="val">94</div><div class="delta up">+9% (จาก 86)</div></div>
+          <div class="kpi accent"><div class="lab">ส่งมอบงานตรงเวลา (On-time)</div><div class="val">92<small>%</small></div><div class="delta up">+5 จุด</div></div>
+          <div class="kpi"><div class="lab">อัตราใช้กำลังทีม (Utilization)</div><div class="val">78<small>%</small></div><div class="delta up">+3 จุด</div></div>
+          <div class="kpi"><div class="lab">คะแนนความผูกพัน (eNPS)</div><div class="val">48</div><div class="delta up">+7</div></div>
+        </div>
+        <div class="anim">
+          <h3 class="headline" style="font-size:34px;">ไฮไลต์ด้านบุคลากร</h3>
+          <div class="blist" style="margin-top:24px;">
+            <div class="bitem"><div class="bnum">01</div><div class="btext"><b>เพิ่มทีมพัฒนา 8 ตำแหน่ง</b><span>เสริมกำลัง Cloud &amp; Software ตามการเติบโตของพอร์ตโครงการ</span></div></div>
+            <div class="bitem"><div class="bnum">02</div><div class="btext"><b>โครงการ Upskill ภายใน</b><span>อบรม Cloud &amp; Security ครอบคลุมพนักงานสายเทคนิค 60%</span></div></div>
+            <div class="bitem"><div class="bnum">03</div><div class="btext"><b>อัตราการลาออกลดเหลือ 6%</b><span>ต่ำกว่าค่าเฉลี่ยอุตสาหกรรม จากการปรับโครงสร้างความก้าวหน้า</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">06 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 7 · CHALLENGES & LEARNINGS -->
+  <section data-label="Challenges & Learnings">
+    <div class="pad">
+      <div class="kicker anim">Challenges &amp; Learnings</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">อุปสรรคและบทเรียน</h2>
+      <div class="ch-grid" style="margin-top:44px;">
+        <div class="ch anim"><div class="cnum">01</div><h3>การแย่งชิง Talent สายพัฒนา</h3><p>ตลาดแรงงาน Cloud/Dev แข่งขันสูง ทำให้บางตำแหน่งใช้เวลาสรรหานานกว่าแผน</p><div class="learn"><b>บทเรียน →</b><span>ตั้งทีม Recruit เฉพาะทาง + เร่งโครงการ Upskill ภายใน</span></div></div>
+        <div class="ch anim"><div class="cnum">02</div><h3>โครงการ Enterprise ล่าช้า</h3><p>โครงการรายใหญ่ 1 รายล่าช้า 3 สัปดาห์จาก Scope Creep และการเปลี่ยนแปลงความต้องการ</p><div class="learn"><b>บทเรียน →</b><span>ปรับ Governance + Change Control ให้รัดกุมตั้งแต่ต้นโครงการ</span></div></div>
+        <div class="ch anim"><div class="cnum">03</div><h3>ต้นทุน Hardware ผันผวน</h3><p>ราคาและซัพพลายของฮาร์ดแวร์ไม่แน่นอน กระทบมาร์จิ้นของกลุ่ม Licensing</p><div class="learn"><b>บทเรียน →</b><span>เร่งปรับพอร์ตสู่บริการรายได้ประจำ (Recurring) ลดการพึ่งพา</span></div></div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">07 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 8 · Q2 STRATEGY -->
+  <section data-label="Q2 Strategy">
+    <div class="pad">
+      <div class="kicker anim">Q2 Strategy</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">4 เสาหลักกลยุทธ์ไตรมาส 2</h2>
+      <div class="cols narrow" style="margin-top:38px;align-items:stretch;gap:48px;">
+        <div class="pill-grid anim">
+          <div class="pill"><div class="pidx">1</div><div><h3>เปิดตัว SaaS “GeniusCloud”</h3><p>ผลิตภัณฑ์ Cloud Management สำหรับ SME — Beta เม.ย. และ GA มิ.ย.</p><span class="tag">New Product</span></div></div>
+          <div class="pill"><div class="pidx">2</div><div><h3>เจาะตลาด Enterprise</h3><p>ตั้งทีม Enterprise Sales เป้าปิด 3 ดีลใหญ่ภายในไตรมาส</p><span class="tag">Growth</span></div></div>
+          <div class="pill"><div class="pidx">3</div><div><h3>ขยาย Managed Services</h3><p>เพิ่มสัดส่วนรายได้ประจำจาก 54% เป็น 60% ของรายได้รวม</p><span class="tag">Recurring</span></div></div>
+          <div class="pill"><div class="pidx">4</div><div><h3>Upskill &amp; Certify ทีม</h3><p>รับรองมาตรฐาน Cloud &amp; Security เพิ่ม 20 คน รองรับการเติบโต</p><span class="tag">People</span></div></div>
+        </div>
+        <div class="anim" style="display:flex;flex-direction:column;gap:20px;">
+          <div class="kpi" style="flex:1;justify-content:center;background:linear-gradient(160deg,rgba(59,155,255,.2),rgba(59,155,255,.04));border-color:rgba(59,155,255,.34);">
+            <div class="lab" style="color:#9cc6f5;">เป้ารายได้ Q2 (Target)</div>
+            <div class="val">฿56<small>M</small></div>
+            <div class="delta" style="color:var(--orange);font-weight:600;">+15% QoQ</div>
+          </div>
+          <div class="kpi accent" style="flex:1;justify-content:center;">
+            <div class="lab">งบประมาณที่ขออนุมัติ (Budget Ask)</div>
+            <div class="val" style="font-size:52px;">฿6.5<small>M</small></div>
+            <div class="delta" style="color:var(--muted)">Enterprise Sales + R&amp;D (GeniusCloud)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">08 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 9 · KEY MILESTONES Q2 -->
+  <section data-label="Key Milestones Q2">
+    <div class="pad">
+      <div class="kicker anim">Key Milestones — Q2</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">หมุดหมายสำคัญไตรมาส 2</h2>
+      <div class="tl anim" style="margin-top:46px;">
+        <div class="tcol">
+          <div class="thead"><div class="tnum">1</div><div class="tmon">เมษายน</div></div>
+          <div class="tcard">
+            <div class="ti">เปิดตัว GeniusCloud (Beta) ให้ลูกค้ากลุ่มนำร่อง</div>
+            <div class="ti">จ้างทีมพัฒนาเพิ่ม 5 ตำแหน่ง</div>
+            <div class="ti">เริ่มแคมเปญ Enterprise Outreach</div>
+          </div>
+        </div>
+        <div class="tcol">
+          <div class="thead"><div class="tnum">2</div><div class="tmon">พฤษภาคม</div></div>
+          <div class="tcard">
+            <div class="ti">ได้รับการรับรอง ISO 27001</div>
+            <div class="ti">ปิดดีล Enterprise รายแรกของไตรมาส</div>
+            <div class="ti">เปิดรอบ Upskill &amp; Certification</div>
+          </div>
+        </div>
+        <div class="tcol">
+          <div class="thead"><div class="tnum">3</div><div class="tmon">มิถุนายน</div></div>
+          <div class="tcard">
+            <div class="ti">GeniusCloud พร้อมใช้งานเต็มรูปแบบ (GA)</div>
+            <div class="ti">ปิดดีล Enterprise เพิ่มอีก 2 ราย</div>
+            <div class="ti">ทบทวนผลครึ่งปีกับคณะผู้บริหาร</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">09 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 10 · NEXT STEPS / Q&A -->
+  <section data-label="Next Steps & Q&A">
+    <div class="pad">
+      <div class="kicker anim">Next Steps &amp; Q&amp;A</div>
+      <h2 class="headline h-lg anim" style="margin-top:16px;">ขั้นตอนต่อไป</h2>
+      <div class="ns-grid" style="margin-top:34px;">
+        <div class="ns-list anim">
+          <div class="ns"><div class="nk">1</div><div class="nt">ขออนุมัติงบประมาณ Q2 จำนวน ฿6.5M</div></div>
+          <div class="ns"><div class="nk">2</div><div class="nt">แต่งตั้งคณะกรรมการกำกับโครงการ GeniusCloud</div></div>
+          <div class="ns"><div class="nk">3</div><div class="nt">ทบทวนความคืบหน้าตามหมุดหมายเป็นรายเดือน</div></div>
+          <div class="ns"><div class="nk">4</div><div class="nt">ยืนยันเป้าหมายร่วมกับทีมขายและทีมส่งมอบ</div></div>
+        </div>
+        <div class="qa-card anim">
+          <div class="qbig">ขอบคุณครับ<br><em>Q &amp; A</em></div>
+          <div class="qsub">ยินดีรับคำถามและข้อเสนอแนะจากคณะผู้บริหาร</div>
+          <div class="qcontact">ฝ่ายกลยุทธ์องค์กร · <b>IT Genius</b><br>strategy@itgenius.co.th · 0X-XXX-XXXX</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="brand"><img src="assets/logo.png" alt="">IT Genius</div>
+      <div class="meta"><span class="conf">Confidential</span><span class="pageno">10 / 10</span></div>
+    </div>
+  </section>
+
+</deck-stage>
+<script src="deck-stage.js"></script>
+</body>
+</html>

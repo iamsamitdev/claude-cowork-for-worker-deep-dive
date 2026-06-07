@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รายงานสรุปผลการขาย — มีนาคม 2569</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1F3864;
+  --navy-soft:#3a5286;
+  --ink:#1b1f27;
+  --muted:#6b7280;
+  --faint:#9aa1ac;
+  --line:#e7e9ee;
+  --line2:#d5d9e0;
+  --paper:#ffffff;
+  --pos:#1f7a4d;
+  --warn:#b45309;
+  --kpi-bg:#f4f6fa;
+  --bar-prev:#cdd3dd;
+  --bar-target:#b7c0d6;
+  --page-w:210mm;
+  --page-h:297mm;
+  --pad:17mm;
+  --fs-body:10.2pt;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:#eceef1;
+  font-family:"IBM Plex Sans Thai","IBM Plex Sans",sans-serif;
+  color:var(--ink);
+  font-size:var(--fs-body);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",monospace;}
+
+/* ---------- control bar (screen only) ---------- */
+.toolbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;gap:16px;
+  padding:12px 22px;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(1.4) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.toolbar .tb-title{font-weight:600;font-size:13px;letter-spacing:.01em;color:var(--ink);}
+.toolbar .tb-title small{display:block;font-weight:400;font-size:10.5px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;}
+.toolbar .spacer{flex:1;}
+.seg{display:inline-flex;background:#eef0f4;border:1px solid var(--line2);border-radius:999px;padding:3px;}
+.seg button{
+  font-family:inherit;font-size:12.5px;font-weight:500;
+  border:0;background:transparent;color:var(--muted);
+  padding:6px 16px;border-radius:999px;cursor:pointer;transition:.16s;
+}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff;box-shadow:0 1px 2px rgba(20,30,60,.25);}
+.tb-btn{
+  font-family:inherit;font-size:12.5px;font-weight:500;
+  border:1px solid var(--line2);background:#fff;color:var(--ink);
+  padding:8px 16px;border-radius:8px;cursor:pointer;transition:.16s;
+}
+.tb-btn:hover{border-color:var(--navy);color:var(--navy);}
+
+/* ---------- page scaffold ---------- */
+.deck{display:flex;flex-direction:column;align-items:center;gap:22px;padding:28px 16px 60px;}
+.page{
+  position:relative;
+  width:var(--page-w);min-height:var(--page-h);
+  background:var(--paper);
+  padding:var(--pad) var(--pad) 14mm;
+  box-shadow:0 1px 0 rgba(20,30,60,.04),0 18px 50px -22px rgba(20,30,60,.32);
+  overflow:hidden;
+}
+.page-footer{
+  position:absolute;left:var(--pad);right:var(--pad);bottom:9mm;
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:5px;border-top:1px solid var(--line);
+  font-size:8pt;color:var(--faint);letter-spacing:.02em;
+}
+.page-footer .mono{font-size:7.6pt;letter-spacing:.06em;}
+
+/* ---------- masthead / logo ---------- */
+.masthead{display:flex;justify-content:space-between;align-items:center;gap:18px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo-slot{
+  width:46px;height:46px;flex:0 0 auto;border-radius:9px;
+  background:
+    repeating-linear-gradient(135deg,#eef0f4 0 7px,#e4e7ee 7px 14px);
+  border:1px solid var(--line2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"IBM Plex Mono",monospace;font-size:7pt;color:#9aa1ac;letter-spacing:.08em;
+}
+.brand .co{line-height:1.25;}
+.brand .co b{font-weight:600;font-size:11.5pt;color:var(--ink);}
+.brand .co span{display:block;font-size:8.4pt;color:var(--muted);}
+.masthead .doc-tag{font-family:"IBM Plex Mono",monospace;font-size:8pt;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;text-align:right;}
+
+/* ---------- cover ---------- */
+.cover{display:flex;flex-direction:column;min-height:calc(var(--page-h) - 2*var(--pad) - 14mm);}
+.cover-mid{margin-top:auto;margin-bottom:auto;}
+.cover .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:8.6pt;letter-spacing:.32em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;}
+.cover h1{font-size:33pt;line-height:1.08;font-weight:600;letter-spacing:-.01em;margin:0;color:var(--ink);}
+.cover .month{font-size:18pt;font-weight:400;color:var(--navy);margin-top:10px;}
+.cover .rule{height:2px;width:64px;background:var(--navy);margin:26px 0 0;}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;max-width:430px;margin-top:30px;}
+.cover-meta .k{font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:3px;font-family:"IBM Plex Mono",monospace;}
+.cover-meta .v{font-size:11pt;color:var(--ink);font-weight:500;}
+
+/* ---------- section header ---------- */
+.sec{margin-top:13mm;}
+.sec:first-of-type{margin-top:9mm;}
+.sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:1.5px solid var(--ink);padding-bottom:7px;margin-bottom:14px;}
+.sec-head .no{font-family:"IBM Plex Mono",monospace;font-size:10pt;color:var(--navy);font-weight:500;}
+.sec-head h2{font-size:14.5pt;font-weight:600;margin:0;letter-spacing:-.005em;}
+.sec-head .en{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);align-self:center;}
+
+.lead{color:var(--muted);margin:0 0 12px;max-width:62ch;}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);}
+.kpi{padding:4px 16px;border-left:1px solid var(--line);}
+.kpi:first-child{padding-left:0;border-left:0;}
+.kpi .n{font-size:18.5pt;font-weight:600;letter-spacing:-.01em;line-height:1.1;font-variant-numeric:tabular-nums;}
+.kpi .n.pos{color:var(--pos);}
+.kpi .l{font-size:8.6pt;color:var(--muted);margin-top:4px;}
+
+/* ---------- highlights ---------- */
+.hl{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:9px;}
+.hl li{position:relative;padding-left:18px;color:var(--ink);}
+.hl li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--navy);}
+.hl b{font-weight:600;}
+.pos{color:var(--pos);font-weight:600;}
+
+/* ---------- two col ---------- */
+.row2{display:grid;grid-template-columns:1fr 1.05fr;gap:22px;align-items:start;}
+
+/* ---------- chart ---------- */
+.chart-card{border:1px solid var(--line);border-radius:10px;padding:16px 16px 12px;}
+.chart-card .ct{font-size:9pt;font-weight:600;color:var(--ink);}
+.chart-card .cs{font-size:8pt;color:var(--faint);font-family:"IBM Plex Mono",monospace;letter-spacing:.04em;margin-bottom:14px;}
+.plot{position:relative;height:150px;display:flex;align-items:flex-end;gap:18px;padding-top:18px;}
+.tline{position:absolute;left:0;right:0;border-top:1.5px dashed var(--navy-soft);}
+.tline .tl-lab{position:absolute;right:0;top:-15px;font-size:7.4pt;color:var(--navy-soft);font-family:"IBM Plex Mono",monospace;background:#fff;padding-left:5px;}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.bar{width:100%;max-width:64px;border-radius:5px 5px 0 0;position:relative;}
+.bar.prev{background:var(--bar-prev);}
+.bar.target{background:var(--bar-target);}
+.bar.actual{background:var(--navy);}
+.bar .bv{position:absolute;top:-17px;left:0;right:0;text-align:center;font-size:8pt;font-weight:600;font-variant-numeric:tabular-nums;}
+.blab{margin-top:7px;font-size:8.2pt;color:var(--muted);text-align:center;}
+.chart-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);}
+.chart-foot .badge{background:#eaf3ee;color:var(--pos);font-weight:600;font-size:8.6pt;padding:3px 10px;border-radius:999px;}
+.chart-foot .ng{font-size:8.2pt;color:var(--muted);}
+
+/* ---------- tables ---------- */
+table.tbl{width:100%;border-collapse:collapse;font-size:9.4pt;}
+table.tbl thead th{
+  text-align:left;font-weight:600;color:var(--navy);
+  font-size:8.4pt;letter-spacing:.04em;text-transform:uppercase;
+  padding:8px 10px;border-bottom:1.5px solid var(--navy);
+}
+table.tbl tbody td{padding:8px 10px;border-bottom:1px solid var(--line);}
+table.tbl td.num,table.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;}
+table.tbl td.ctr,table.tbl th.ctr{text-align:center;}
+table.tbl tbody tr.total td{font-weight:600;color:var(--navy);border-top:1.5px solid var(--navy);border-bottom:0;}
+.tag{display:inline-block;font-size:8.2pt;font-weight:600;padding:2px 8px;border-radius:999px;}
+.tag.up{background:#eaf3ee;color:var(--pos);}
+.tag.flat{background:#eef0f4;color:var(--muted);}
+.tag.watch{background:#fbf0e2;color:var(--warn);}
+.star{font-family:"IBM Plex Mono",monospace;font-size:7.6pt;color:var(--navy);letter-spacing:.06em;margin-left:6px;}
+
+/* ---------- problems ---------- */
+.prob{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:12px;}
+.prob li{padding-left:18px;position:relative;}
+.prob li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--warn);}
+.prob .p{font-weight:600;color:var(--ink);}
+.prob .s{color:var(--muted);margin-top:2px;}
+.prob .s b{color:var(--navy);font-weight:600;}
+
+/* ---------- checklist ---------- */
+.check{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px;}
+.check li{display:flex;align-items:flex-start;gap:11px;}
+.check .box{flex:0 0 auto;width:16px;height:16px;margin-top:2px;border:1.6px solid var(--navy);border-radius:4px;}
+.check .ctxt b{font-weight:600;}
+.check .owner{font-family:"IBM Plex Mono",monospace;font-size:7.8pt;color:var(--faint);letter-spacing:.04em;}
+
+/* ============ FORMAL VARIANT OVERRIDES ============ */
+[data-variant="formal"]{
+  --kpi-bg:#f4f6fa;
+}
+[data-variant="formal"] .cover{text-align:center;align-items:stretch;}
+[data-variant="formal"] .cover-inner{border:1.5px solid var(--navy);padding:20mm 16mm;min-height:calc(var(--page-h) - 2*var(--pad) - 14mm);display:flex;flex-direction:column;}
+[data-variant="formal"] .cover .eyebrow{text-align:center;}
+[data-variant="formal"] .cover .rule{margin-left:auto;margin-right:auto;width:90px;}
+[data-variant="formal"] .cover-meta{justify-items:center;text-align:center;max-width:none;margin-left:auto;margin-right:auto;}
+[data-variant="formal"] .cover h1{font-weight:700;}
+[data-variant="formal"] .sec-head{background:var(--navy);border:0;padding:8px 12px;margin-bottom:14px;border-radius:4px;}
+[data-variant="formal"] .sec-head .no{color:#fff;}
+[data-variant="formal"] .sec-head h2{color:#fff;font-size:13pt;}
+[data-variant="formal"] .sec-head .en{color:rgba(255,255,255,.6);}
+[data-variant="formal"] .kpis{border:1px solid var(--line2);border-radius:6px;overflow:hidden;}
+[data-variant="formal"] .kpi{border-left:1px solid var(--line2);background:var(--kpi-bg);padding:11px 14px;}
+[data-variant="formal"] .kpi:first-child{border-left:0;}
+[data-variant="formal"] .kpi .n{font-size:16.5pt;}
+[data-variant="formal"] table.tbl{border:1px solid var(--line2);}
+[data-variant="formal"] table.tbl thead th{background:var(--navy);color:#fff;border-bottom:0;border-right:1px solid rgba(255,255,255,.18);}
+[data-variant="formal"] table.tbl thead th:last-child{border-right:0;}
+[data-variant="formal"] table.tbl tbody td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+[data-variant="formal"] table.tbl tbody td:last-child{border-right:0;}
+[data-variant="formal"] table.tbl tbody tr:nth-child(even){background:#f7f9fc;}
+[data-variant="formal"] table.tbl tbody tr.total{background:#eef2f8;}
+[data-variant="formal"] table.tbl tbody tr.total td{border-top:1px solid var(--navy);}
+[data-variant="formal"] .hl li::before{border-radius:0;}
+
+/* ---------- print ---------- */
+@media print{
+  @page{size:A4;margin:0;}
+  body{background:#fff;}
+  .toolbar{display:none !important;}
+  .deck{padding:0;gap:0;}
+  .page{width:210mm;height:297mm;min-height:auto;box-shadow:none;page-break-after:always;break-after:page;}
+  .page:last-child{page-break-after:auto;}
+}
+</style>
+</head>
+<body data-variant="formal">
+
+<div class="deck">
+
+  <!-- ============ PAGE 1 — COVER ============ -->
+  <section class="page" data-screen-label="หน้า 1 · ปก">
+    <div class="cover">
+      <div class="cover-inner">
+        <div class="masthead">
+          <div class="brand">
+            <div class="logo-slot">LOGO</div>
+            <div class="co"><b>บริษัท ตัวอย่าง จำกัด</b><span>ฝ่ายขายและการตลาด · Sales &amp; Marketing</span></div>
+          </div>
+          <div class="doc-tag">CONFIDENTIAL<br>FY2569 / Q1</div>
+        </div>
+
+        <div class="cover-mid">
+          <div class="eyebrow">รายงานประจำเดือน · Monthly Sales Report</div>
+          <h1>รายงานสรุป<br>ผลการขาย</h1>
+          <div class="month">ประจำเดือนมีนาคม 2569</div>
+          <div class="rule"></div>
+          <div class="cover-meta">
+            <div><div class="k">รอบรายงาน</div><div class="v">1 – 31 มีนาคม 2569</div></div>
+            <div><div class="k">วันที่จัดทำ</div><div class="v">3 เมษายน 2569</div></div>
+            <div><div class="k">จัดทำโดย</div><div class="v">ฝ่ายขายและการตลาด</div></div>
+            <div><div class="k">ผู้อนุมัติ</div><div class="v">ผู้จัดการฝ่ายขาย</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>บริษัท ตัวอย่าง จำกัด — รายงานภายใน</span><span class="mono">หน้า 1 / 3</span></div>
+  </section>
+
+  <!-- ============ PAGE 2 ============ -->
+  <section class="page" data-screen-label="หน้า 2 · บทสรุป + ผลการดำเนินงาน">
+    <div class="masthead" style="margin-bottom:2mm;">
+      <div class="brand"><div class="logo-slot" style="width:34px;height:34px;font-size:6pt;">LOGO</div><div class="co"><b style="font-size:10pt;">บริษัท ตัวอย่าง จำกัด</b><span style="font-size:7.6pt;">รายงานสรุปผลการขาย · มีนาคม 2569</span></div></div>
+      <div class="doc-tag" style="font-size:7pt;">SALES REPORT<br>มี.ค. 2569</div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><span class="no">01</span><h2>บทสรุปสำหรับผู้บริหาร</h2><span class="en">Executive Summary</span></div>
+      <div class="kpis">
+        <div class="kpi"><div class="n">1,925,000</div><div class="l">ยอดขายรวม (บาท)</div></div>
+        <div class="kpi"><div class="n pos">+6.9%</div><div class="l">เทียบกับเป้าหมาย</div></div>
+        <div class="kpi"><div class="n pos">+16.3%</div><div class="l">เติบโตจากเดือนก่อน</div></div>
+        <div class="kpi"><div class="n">4.3<span style="font-size:11pt;color:var(--faint);"> / 5.0</span></div><div class="l">ความพึงพอใจลูกค้า</div></div>
+      </div>
+      <ul class="hl">
+        <li><b>ยอดขายรวม 1,925,000 บาท</b> สูงกว่าเป้าหมาย (1,800,000 บาท) คิดเป็น <span class="pos">+6.9%</span></li>
+        <li><b>เติบโตจากเดือนกุมภาพันธ์</b> (1,655,000 บาท) ในอัตรา <span class="pos">+16.3% MoM</span></li>
+        <li><b>ขยายฐานลูกค้า</b> ได้ลูกค้าใหม่ 18 ราย คงฐาน Active 127 ราย ลูกค้ายกเลิก (Churn) เพียง 3 ราย</li>
+        <li><b>สินค้าเรือธง</b> กลุ่มโน้ตบุ๊กทำยอดสูงสุด 1,000,000 บาท — กว่าครึ่งของยอดขายทั้งเดือน</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><span class="no">02</span><h2>ผลการดำเนินงาน</h2><span class="en">Performance · Target vs Actual</span></div>
+      <div class="row2">
+        <div class="chart-card">
+          <div class="ct">ยอดขาย เทียบเป้าหมาย</div>
+          <div class="cs">หน่วย: ล้านบาท</div>
+          <div class="plot">
+            <div class="tline" style="bottom:93.5%;"><span class="tl-lab">เป้า 1.80</span></div>
+            <div class="bcol"><div class="bar prev" style="height:85.9%;"><span class="bv">1.66</span></div><div class="blab">ก.พ. 69</div></div>
+            <div class="bcol"><div class="bar target" style="height:93.5%;"><span class="bv">1.80</span></div><div class="blab">เป้าหมาย</div></div>
+            <div class="bcol"><div class="bar actual" style="height:100%;"><span class="bv">1.93</span></div><div class="blab">ผลจริง มี.ค.</div></div>
+          </div>
+          <div class="chart-foot"><span class="badge">เกินเป้า +6.9%</span><span class="ng">+270,000 บาท จากเดือนก่อน</span></div>
+        </div>
+        <table class="tbl">
+          <thead><tr><th>ตัวชี้วัด</th><th class="num">เป้าหมาย</th><th class="num">ผลจริง</th><th class="ctr">สถานะ</th></tr></thead>
+          <tbody>
+            <tr><td>ยอดขายรวม (บาท)</td><td class="num">1,800,000</td><td class="num">1,925,000</td><td class="ctr"><span class="tag up">+6.9%</span></td></tr>
+            <tr><td>เทียบเดือนก่อน</td><td class="num">1,655,000</td><td class="num">1,925,000</td><td class="ctr"><span class="tag up">+16.3%</span></td></tr>
+            <tr><td>ลูกค้าใหม่ (ราย)</td><td class="num">—</td><td class="num">18</td><td class="ctr"><span class="tag up">เพิ่มขึ้น</span></td></tr>
+            <tr><td>ลูกค้า Active (ราย)</td><td class="num">—</td><td class="num">127</td><td class="ctr"><span class="tag flat">คงที่</span></td></tr>
+            <tr><td>ลูกค้ายกเลิก / Churn</td><td class="num">—</td><td class="num">3</td><td class="ctr"><span class="tag watch">เฝ้าระวัง</span></td></tr>
+            <tr><td>ความพึงพอใจ (เต็ม 5)</td><td class="num">—</td><td class="num">4.3</td><td class="ctr"><span class="tag up">ดี</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer"><span>บริษัท ตัวอย่าง จำกัด — รายงานภายใน</span><span class="mono">หน้า 2 / 3</span></div>
+  </section>
+
+  <!-- ============ PAGE 3 ============ -->
+  <section class="page" data-screen-label="หน้า 3 · สินค้า · ทีมขาย · ปัญหา · แผน">
+    <div class="masthead" style="margin-bottom:2mm;">
+      <div class="brand"><div class="logo-slot" style="width:34px;height:34px;font-size:6pt;">LOGO</div><div class="co"><b style="font-size:10pt;">บริษัท ตัวอย่าง จำกัด</b><span style="font-size:7.6pt;">รายงานสรุปผลการขาย · มีนาคม 2569</span></div></div>
+      <div class="doc-tag" style="font-size:7pt;">SALES REPORT<br>มี.ค. 2569</div>
+    </div>
+
+    <div class="row2" style="grid-template-columns:1fr 1fr;gap:26px;">
+      <div class="sec" style="margin-top:7mm;">
+        <div class="sec-head"><span class="no">03</span><h2>สินค้าขายดี</h2><span class="en">Top 4</span></div>
+        <table class="tbl">
+          <thead><tr><th class="ctr">#</th><th>สินค้า</th><th class="num">จำนวน</th><th class="num">ยอดขาย</th></tr></thead>
+          <tbody>
+            <tr><td class="ctr">1</td><td>โน้ตบุ๊ก</td><td class="num">40</td><td class="num">1,000,000</td></tr>
+            <tr><td class="ctr">2</td><td>จอมอนิเตอร์</td><td class="num">50</td><td class="num">425,000</td></tr>
+            <tr><td class="ctr">3</td><td>แท็บเล็ต</td><td class="num">25</td><td class="num">300,000</td></tr>
+            <tr><td class="ctr">4</td><td>คีย์บอร์ด</td><td class="num">80</td><td class="num">200,000</td></tr>
+            <tr class="total"><td></td><td>รวมทั้งสิ้น</td><td class="num">195</td><td class="num">1,925,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sec" style="margin-top:7mm;">
+        <div class="sec-head"><span class="no">04</span><h2>ผลงานทีมขาย</h2><span class="en">Sales Team</span></div>
+        <table class="tbl">
+          <thead><tr><th class="ctr">#</th><th>พนักงานขาย</th><th class="num">ยอดขาย</th><th class="num">สัดส่วน</th></tr></thead>
+          <tbody>
+            <tr><td class="ctr">1</td><td>สมหมาย<span class="star">TOP</span></td><td class="num">1,200,000</td><td class="num">62.3%</td></tr>
+            <tr><td class="ctr">2</td><td>สุดา</td><td class="num">425,000</td><td class="num">22.1%</td></tr>
+            <tr><td class="ctr">3</td><td>วิรัช</td><td class="num">300,000</td><td class="num">15.6%</td></tr>
+            <tr class="total"><td></td><td>รวมทั้งทีม</td><td class="num">1,925,000</td><td class="num">100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><span class="no">05</span><h2>ปัญหาและแนวทางแก้ไข</h2><span class="en">Issues &amp; Actions</span></div>
+      <ul class="prob">
+        <li><div class="p">สต็อกโน้ตบุ๊กรุ่น A1 เหลือน้อย (คงเหลือ 15 เครื่อง)</div><div class="s"><b>แนวทาง:</b> เร่งสั่งสต็อกเพิ่ม 50 เครื่อง และกำหนดจุดสั่งซื้อซ้ำ (Reorder Point) เพื่อกันของขาด</div></li>
+        <li><div class="p">ลูกค้า 3 ราย ยกเลิกเนื่องจากเรื่องราคา (Churn)</div><div class="s"><b>แนวทาง:</b> ทบทวนกลยุทธ์ราคา จัดแพ็กเกจคุ้มค่า และเปิดตัว Loyalty Program เพื่อรักษาฐานลูกค้า</div></li>
+        <li><div class="p">ระบบ CRM มีปัญหา Downtime 2 ชั่วโมง</div><div class="s"><b>แนวทาง:</b> ประสานทีม IT ตรวจสอบเสถียรภาพระบบ และจัดทำแผนสำรองข้อมูล/ระบบสำรอง</div></li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><span class="no">06</span><h2>แผนงานเดือนเมษายน 2569</h2><span class="en">Next Month Plan</span></div>
+      <ul class="check">
+        <li><span class="box"></span><span class="ctxt"><b>สั่งสต็อกโน้ตบุ๊กเพิ่ม 50 เครื่อง</b> &nbsp;<span class="owner">— จัดซื้อ</span></span></li>
+        <li><span class="box"></span><span class="ctxt"><b>เปิดตัว Loyalty Program</b> สำหรับลูกค้าเดิม &nbsp;<span class="owner">— การตลาด</span></span></li>
+        <li><span class="box"></span><span class="ctxt"><b>อบรมทีมขายหัวข้อ Consultative Selling</b> &nbsp;<span class="owner">— หัวหน้าทีมขาย</span></span></li>
+        <li><span class="box"></span><span class="ctxt"><b>ติดตามแก้ไขเสถียรภาพระบบ CRM</b> &nbsp;<span class="owner">— IT</span></span></li>
+      </ul>
+    </div>
+
+    <div class="page-footer"><span>บริษัท ตัวอย่าง จำกัด — รายงานภายใน</span><span class="mono">หน้า 3 / 3</span></div>
+  </section>
+
+</div>
+
+
+</body>
+</html>
