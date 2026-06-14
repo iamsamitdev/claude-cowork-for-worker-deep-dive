@@ -1,2 +1,8 @@
 Claude_Cowork_Tools_Installation.pptx
 Claude_Cowork_Deep_Dive.pptx
+
+line-mcp-server/node_modules
+line-mcp-server/.env
+line-mcp-server/dist
+line-mcp-server/*.log
+line-mcp-server/.DS_Store
